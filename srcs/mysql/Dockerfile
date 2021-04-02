@@ -8,7 +8,9 @@ mysql-client
 VOLUME [ "/sys/fs/cgroup" ]
 
 COPY mysql.sh /home/docker/script/mysql.sh
+COPY database.sh /home/docker/script/database.sh
 RUN chmod 744 /home/docker/script/mysql.sh
+RUN chmod 744 /home/docker/script/database.sh
 
 CMD /home/docker/script/mysql.sh
 WORKDIR /etc/init.d
