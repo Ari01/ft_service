@@ -1,7 +1,7 @@
 # DOCKER CONTAINERS
 	# NGINX
 	docker build srcs/nginx/. -t "nginx"
-	docker run -itdp 8080:80 --name="nginx" --network "ft_service" --network-alias "nginx" nginx:latest nginx
+	docker run -itdp 8080:80 --name="nginx" --network "ft_service" --network-alias "nginx" nginx:latest
 
 	# MYSQL
 	docker build srcs/mysql/. -t "mysql"
