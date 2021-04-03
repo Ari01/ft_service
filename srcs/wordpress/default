@@ -58,34 +58,17 @@ http {
 	# Virtual Host Configs
 	##
 	server {
-		listen 80 default_server;
-		listen [::]:80 default_server;
+		listen 5050 default_server;
+		listen [::]:5050 default_server;
 
-		server_name _;
-		return 301 https://$server_name$request_uri;
-	}
+		server_name localhost;
 
-	server {
-		listen 443 ssl default_server;
-		listen [::]:443 ssl default_server;
-
-		ssl_certificate		/etc/nginx/certificate/nginx-certificate.crt;
-		ssl_certificate_key	/etc/nginx/certificate/nginx.key;
-
-		server_name _;
 		root /www;
+		index index.php index.html index.nginx-debian.html;
 
 		location / {
-			autoindex on;
+			try_files $uri $uri/ =404;
 		}
-
-		location /wordpress {
-			return 307 http://localhost:5050;
-		}
-
-		#location /phpmyadmin {
-		#	proxy_pass http://localhost:5000;
-		#}
 	}
 }
 
