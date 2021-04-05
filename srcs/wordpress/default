@@ -61,13 +61,19 @@ http {
 		listen 5050 default_server;
 		listen [::]:5050 default_server;
 
-		server_name localhost;
+		server_name _;
 
 		root /www;
 		index index.php index.html index.nginx-debian.html;
 
 		location / {
 			try_files $uri $uri/ =404;
+		}
+
+		location ~ \.php$ {
+			fastcgi_pass 127.0.0.1:9000;
+			fastcgi_index index.php;
+			include fastcgi.conf;
 		}
 	}
 }
