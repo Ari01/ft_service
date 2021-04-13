@@ -63,7 +63,7 @@ http {
 
 		server_name _;
 
-		root /www;
+		root /www/wordpress;
 		index index.php index.html index.nginx-debian.html;
 
 		location / {

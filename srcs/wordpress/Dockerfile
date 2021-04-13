@@ -4,7 +4,7 @@ FROM alpine:latest
 RUN apk update && apk add \
 nginx \
 wget \
-php-fpm php-mysqli
+php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json
 
 # SCRIPT CONF WEBFOLDER
 COPY www /www

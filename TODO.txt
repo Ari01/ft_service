@@ -1,0 +1,6 @@
+- try install openrc and boot services from dockerfile build
+- then try php pages in container wordpress
+
+IN CONTAINER WP
+- apk add php-phar
+- apk add php-json
