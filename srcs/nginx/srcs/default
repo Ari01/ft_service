@@ -74,9 +74,10 @@ http {
 
 		server_name _;
 		root /www;
+		index index.html;
 
 		location / {
-			autoindex on;
+			try_files $uri $uri/ =404;
 		}
 
 		location /wordpress {

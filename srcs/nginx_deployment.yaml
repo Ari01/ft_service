@@ -16,9 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: mynginx:latest
-        imagePullPolicy: Never
-        command: ["sleep"]
-        args: ["infinity"]
+        image: nginx:latest
+        #imagePullPolicy: Never
         ports:
         - containerPort: 80
