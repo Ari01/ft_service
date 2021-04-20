@@ -58,21 +58,21 @@ http {
 	# Virtual Host Configs
 	##
 	server {
-		listen 80 default_server;
-		listen [::]:80 default_server;
+		listen 80;
+		listen [::]:80;
 
-		server_name _;
+		server_name 172.17.0.20;
 		return 301 https://$server_name$request_uri;
 	}
 
 	server {
-		listen 443 ssl default_server;
-		listen [::]:443 ssl default_server;
+		listen 443 ssl;
+		listen [::]:443 ssl;
 
 		ssl_certificate		/etc/nginx/certificate/nginx-certificate.crt;
 		ssl_certificate_key	/etc/nginx/certificate/nginx.key;
 
-		server_name _;
+		server_name 172.17.0.20;
 		root /www;
 		index index.html;
 
@@ -81,7 +81,7 @@ http {
 		}
 
 		location /wordpress {
-			return 307 172.19.0.3:5050;
+			return 307 http://172.17.0.20:5050;
 		}
 
 		#location /phpmyadmin {

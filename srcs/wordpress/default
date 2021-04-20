@@ -58,10 +58,10 @@ http {
 	# Virtual Host Configs
 	##
 	server {
-		listen 5050 default_server;
-		listen [::]:5050 default_server;
+		listen 5050;
+		listen [::]:5050;
 
-		server_name _;
+		server_name 172.17.0.20:5050;
 
 		root /www/wordpress;
 		index index.php index.html index.nginx-debian.html;
