@@ -1,19 +1,13 @@
-# KUBERNETES
-	# DEPENDECIES
-	sudo apt-get update
-	sudo apt-get install -y apt-transport-https ca-certificates curl
+# INSTALL MINIKUBE
+	echo "Install minikube ? y/n"
+	read ANSWER
+	if [ $ANSWER = "y" ]
+	then
+		sh install_minikube.sh
+	fi
 
-	# GPG KEY
-	sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-
-	# KUBERNETES DIR
-	echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
-	# KUBERNETES INSTALL
-	sudo apt-get update
-	sudo apt-get install -y kubectl
-	
-	# START MINIKUBE
+# START MINIKUBE
+	minikube delete
 	minikube start
 
 # METALLB
@@ -23,8 +17,10 @@
 	kubectl get pod -n metallb-system -o wide
 	kubectl get configmap kube-proxy -n kube-system -o yaml | \
 	sed -e "s/strictARP: false/strictARP: true/"
-	kubectl get configmap kube-proxy -n kube-system -o yaml | \
-	kubectl apply -f - -n kube-system
+	#kubectl get configmap kube-proxy -n kube-system -o yaml | \
+	#kubectl apply -f - -n kube-system
 
-# POD NAME
-	kubectl get pod | grep "nginx[a-z0-9-]*"
+# KUBERNETES CONF
+	eval $(minikube docker-env)
+	sh build.sh
+	kubectl apply -k srcs/config/. 

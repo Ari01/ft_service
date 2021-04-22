@@ -6,6 +6,7 @@ mysql \
 mysql-client
 
 VOLUME [ "/sys/fs/cgroup" ]
+#VOLUME [ "/var/lib/mysql" ]
 
 COPY mysql.sh /home/docker/script/mysql.sh
 COPY database.sh /home/docker/script/database.sh
