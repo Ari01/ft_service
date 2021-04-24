@@ -5,13 +5,13 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: "ip-share"
   labels:
-    app: wordpress
+    app: mysql
 spec:
   ports:
     - port: 5050
   selector:
-    app: wordpress
-    tier: frontend
+    app: mysql
+    tier: wordpress
   type: LoadBalancer
 ---
 apiVersion: v1
@@ -19,7 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim
   labels:
-    app: wordpress
+    app: mysql
 spec:
   accessModes:
     - ReadWriteOnce
@@ -32,19 +32,19 @@ kind: Deployment
 metadata:
   name: wordpress
   labels:
-    app: wordpress
+    app: mysql
 spec:
   selector:
     matchLabels:
-      app: wordpress
-      tier: frontend
+      app: mysql
+      tier: wordpress
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: frontend
+        app: mysql
+        tier: wordpress
     spec:
       containers:
       - image: wordpress:latest
