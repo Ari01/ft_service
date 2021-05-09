@@ -6,16 +6,16 @@ nginx \
 wget \
 php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json
 
-# SCRIPT CONF WEBFOLDER
-COPY www /www
-COPY default /etc/nginx/nginx.conf
-COPY wp.sh /home/docker/script/wp.sh
-
 # WORDPRESS
-RUN cd /www && \
+RUN mkdir /www && cd /www && \
 wget http://wordpress.org/latest.tar.gz && \
 tar -xzvf latest.tar.gz && \
 rm latest.tar.gz
+
+# SCRIPT & CONF
+COPY default /etc/nginx/nginx.conf
+COPY wp.sh /home/docker/script/wp.sh
+COPY wp-config.php /www/wordpress/wp-config.php 
 
 # USER RIGHTS
 RUN adduser -D -g 'user42' user42

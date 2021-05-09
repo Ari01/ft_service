@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS wp;
-CREATE USER IF NOT EXISTS 'user42'@'localhost' IDENTIFIED BY 'user42';
-GRANT ALL PRIVILEGES ON wp.* TO 'user42'@'localhost';
-GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'user42'@'localhost';
-GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'user42';
+GRANT ALL PRIVILEGES ON wp.* TO 'root'@'%';
+#GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'root'@'172.17.0.20';
+#GRANT ALL PRIVILEGES ON phpmyadmin.* TO 'pma'@'172.17.0.20' IDENTIFIED BY 'pmapass';
 FLUSH PRIVILEGES;

@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: wordpress-mysql
   labels:
-    app: mysql
+    app: wordpress
 spec:
   ports:
     - port: 3306
   selector:
-    app: mysql
-    tier: db
+    app: wordpress
+    tier: mysql
   clusterIP: None
 ---
 apiVersion: v1
@@ -17,32 +17,32 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
   labels:
-    app: mysql
+    app: wordpress
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 20Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: wordpress-mysql
   labels:
-    app: mysql
+    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: mysql
-      tier: db
+      app: wordpress
+      tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
-        tier: db
+        app: wordpress
+        tier: mysql
     spec:
       containers:
       - image: mysql
