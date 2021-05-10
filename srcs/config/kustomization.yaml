@@ -3,9 +3,7 @@ secretGenerator:
   literals:
   - password=user42
 resources:
-  - mysql-deployment.yaml
-  - wordpress-deployment.yaml
+  - mysql.yaml
+  - wordpress.yaml
   - metallb.yaml
   - nginx.yaml
-#  - mysql.yaml
-#  - wordpress.yaml

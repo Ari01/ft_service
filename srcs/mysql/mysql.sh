@@ -1,16 +1,18 @@
 mkdir /run/openrc
 touch /run/openrc/softlevel
-chown -R mysql /var/lib/mysql
-chmod -R 777 /var/lib/mysql
+#chown -R mysql:mysql /var/lib/mysql
+#chmod -R 777 /var/lib/mysql
 
 /etc/init.d/mariadb setup
 rc-status
 /etc/init.d/mariadb start
 mysql -u root -puser42 < /home/docker/script/database.sh
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
 /etc/init.d/mariadb stop
-mysqld -u mysql
+#mysqld -u mysql
 
-#sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
+exec /usr/bin/mysqld --user=mysql --console
+
 #mysqladmin -u root -puser42 shutdown
 #exec /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
 #echo "

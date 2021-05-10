@@ -1,21 +1,21 @@
 FROM alpine:latest
 
+# packages
 RUN apk update && apk add \
 openrc \
-php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json \
-mysql \
-mysql-client
+mysql mysql-client
 
-VOLUME [ "/sys/fs/cgroup" ]
-#VOLUME [ "/var/lib/mysql" ]
+VOLUME [ /sys/fs/cgroup/ ]
 
+# script
 COPY mysql.sh /home/docker/script/mysql.sh
 COPY database.sh /home/docker/script/database.sh
+COPY mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
+# rights
+RUN chown -R mysql:mysql /var/lib/mysql
 RUN chmod 777 \
 /var/lib/mysql \
-/home/docker/script/mysql.sh \
-/home/docker/script/database.sh
+/home/docker/script
 
-CMD /home/docker/script/mysql.sh
-WORKDIR /etc/init.d
+CMD sh /home/docker/script/mysql.sh
