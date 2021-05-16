@@ -7,3 +7,4 @@ resources:
   - wordpress.yaml
   - metallb.yaml
   - nginx.yaml
+  - phpmyadmin.yaml

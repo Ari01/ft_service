@@ -6,3 +6,5 @@
 	docker build srcs/mysql/. -t "mysql"
 	# WP
 	docker build srcs/wordpress/. -t "wordpress"
+	# PMA
+	docker build srcs/phpmyadmin/. -t "phpmyadmin"

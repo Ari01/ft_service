@@ -1,55 +1,42 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress
+  name: phpmyadmin
   annotations:
     metallb.universe.tf/allow-shared-ip: "ip-share"
   labels:
-    app: wordpress
+    app: phpmyadmin
 spec:
   ports:
-    - port: 5050
+    - port: 5000
   selector:
-    app: wordpress
+    app: phpmyadmin
     tier: frontend
   type: LoadBalancer
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: wp-pv-claim
-  labels:
-    app: wordpress
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: phpmyadmin
   labels:
-    app: wordpress
+    app: phpmyadmin
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: phpmyadmin
       tier: frontend
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: phpmyadmin
         tier: frontend
     spec:
       containers:
-      - image: wordpress
+      - image: phpmyadmin
         imagePullPolicy: Never
-        name: wordpress
+        name: phpmyadmin
         env:
         - name: DB_HOST
           value: mysql
@@ -63,12 +50,5 @@ spec:
         - name: DB_NAME
           value: wp
         ports:
-        - containerPort: 5050
-          name: wordpress
-        volumeMounts:
-        - name: wordpress-persistent-storage
-          mountPath: /var/www/html
-      volumes:
-      - name: wordpress-persistent-storage
-        persistentVolumeClaim:
-          claimName: wp-pv-claim
+        - containerPort: 5000
+          name: phpmyadmin
