@@ -32,11 +32,11 @@ $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['host'] = 'mysql';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysql';
 $cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = '';
-//$cfg['PmaAbsoluteUri'] = 'http://172.17.0.20:5000/www/wordpress/';
+$cfg['Servers'][$i]['password'] = 'user42';
+//$cfg['PmaAbsoluteUri'] = 'http://172.17.0.20:5000';
 
 /**
  * phpMyAdmin configuration storage settings.

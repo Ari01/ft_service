@@ -2,15 +2,16 @@ FROM alpine:latest
 
 # packages
 RUN apk update && apk add \
+curl \
 nginx \
 wget \
-php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json
+php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json php-mbstring php-gettext
 
 # WORDPRESS
-RUN mkdir /www && cd /www && \
-wget http://wordpress.org/latest.tar.gz && \
-tar -xzvf latest.tar.gz && \
-rm latest.tar.gz
+RUN mkdir /www && cd /www
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 # SCRIPT & CONF
 COPY default /etc/nginx/nginx.conf
