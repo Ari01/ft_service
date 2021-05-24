@@ -8,3 +8,6 @@ resources:
   - metallb.yaml
   - nginx.yaml
   - phpmyadmin.yaml
+  - influxdb.yaml
+  - telegraf.yaml
+  - grafana.yaml
