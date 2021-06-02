@@ -11,5 +11,6 @@
 	# INFLUXDB
 	docker build srcs/influxdb/. -t "influxdb"
 	# TELEGRAF
+	docker build srcs/telegraf/. -t "telegraf"
 	# GRAFANA
 	#docker build srcs/grafana/. -t "grafana"
