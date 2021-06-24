@@ -9,3 +9,4 @@ Kubernetes
 8. kubectl get services
 9. kubectl delete service/deployment name
 
+
