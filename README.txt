@@ -8,5 +8,3 @@ Kubernetes
 7. kubectl exec $POD_NAME env
 8. kubectl get services
 9. kubectl delete service/deployment name
-
-
