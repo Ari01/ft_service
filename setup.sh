@@ -9,6 +9,7 @@
 # START MINIKUBE
 	minikube delete
 	minikube start
+	minikube kubectl -- get po -A
 
 # METALLB
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
@@ -22,4 +23,6 @@
 
 # KUBERNETES CONF
 	sh build.sh
-	kubectl apply -k srcs/config/. 
+	# kubectl apply -k srcs/config/.
+	kubectl apply -f srcs/config/metallb.yaml
+	kubectl apply -f srcs/config/nginx.yaml

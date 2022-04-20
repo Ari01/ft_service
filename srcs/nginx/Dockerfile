@@ -17,6 +17,8 @@ RUN chown -R user42:user42 \
 /home/docker/script/nginx.sh \
 /home/docker/script/ssl.sh
 
+EXPOSE 80 443
+
 CMD sh /home/docker/script/nginx.sh
 
 WORKDIR /etc/nginx

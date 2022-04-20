@@ -3,9 +3,9 @@ secretGenerator:
   literals:
   - password=user42
 resources:
+  - metallb.yaml
   - mysql.yaml
   - wordpress.yaml
-  - metallb.yaml
   - nginx.yaml
   - phpmyadmin.yaml
   - influxdb.yaml
