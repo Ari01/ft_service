@@ -3,14 +3,15 @@
 	# NGINX
 	docker build srcs/nginx/. -t "nginx"
 	# MYSQL
-	#docker build srcs/mysql/. -t "mysql"
+	docker build srcs/mysql/. -t "mysql"
 	# WP
-	#docker build srcs/wordpress/. -t "wordpress"
+	docker build srcs/wordpress/. -t "wordpress"
 	# PMA
-	#docker build srcs/phpmyadmin/. -t "phpmyadmin"
+	docker build srcs/phpmyadmin/. -t "phpmyadmin"
 	# INFLUXDB
-	#docker build srcs/influxdb/. -t "influxdb"
+	docker build srcs/influxdb/. -t "influxdb"
 	# TELEGRAF
-	#docker build srcs/telegraf/. -t "telegraf"
+	docker build srcs/telegraf/. -t "telegraf"
 	# GRAFANA
 	#docker build srcs/grafana/. -t "grafana"
+	docker images 

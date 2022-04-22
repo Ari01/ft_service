@@ -1,8 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && apk add \
-nginx \
-openssl
+nginx openssl #openrc
 
 COPY srcs/default /etc/nginx/nginx.conf
 COPY srcs/nginx.sh /home/docker/script/nginx.sh

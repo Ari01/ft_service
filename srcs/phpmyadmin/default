@@ -61,7 +61,7 @@ http {
 		listen 5000;
 		listen [::]:5000;
 
-		server_name 172.17.0.20;
+		server_name 192.168.49.100;
 
 		root /www/phpmyadmin;
 		index index.php index.html index.nginx-debian.html;

@@ -61,7 +61,7 @@ http {
 		listen 5050;
 		listen [::]:5050;
 
-		server_name 172.17.0.20:5050;
+		server_name 192.168.49.100;
 
 		root /www/wordpress;
 		index index.php index.html index.nginx-debian.html;

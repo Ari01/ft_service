@@ -8,12 +8,14 @@ spec:
   selector:
     app: nginx
   ports:
-    - name: http
+    - name: nginx-http
       protocol: TCP
       port: 80
-    - name: https
+      targetPort: 80
+    - name: nginx-https
       protocol: TCP
       port: 443
+      targetPort: 443
   type: LoadBalancer
 ---
 apiVersion: apps/v1
@@ -38,3 +40,6 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 80
+          name: nginx-http
+        - containerPort: 443
+          name: nginx-https
