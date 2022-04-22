@@ -30,8 +30,4 @@
 	#kubectl apply -f - -n kube-system
 
 # KUBERNETES CONF
-	sleep 5
 	sh build.sh
-	kubectl apply -k srcs/config/.
-	#kubectl apply -f srcs/config/metallb.yaml
-	#kubectl apply -f srcs/config/nginx.yaml

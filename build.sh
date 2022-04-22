@@ -14,4 +14,6 @@
 	docker build srcs/telegraf/. -t "telegraf"
 	# GRAFANA
 	#docker build srcs/grafana/. -t "grafana"
-	docker images 
+	docker images
+
+	kubectl apply -k srcs/config/.
