@@ -12,6 +12,8 @@
 	docker build srcs/influxdb/. -t "influxdb"
 	# TELEGRAF
 	docker build srcs/telegraf/. -t "telegraf"
+	# FTPS
+	docker build srcs/ftps/. -t "ftps"
 	# GRAFANA
 	#docker build srcs/grafana/. -t "grafana"
 	docker images
