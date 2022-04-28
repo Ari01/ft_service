@@ -15,7 +15,7 @@ RUN openssl req \
 COPY ftps.sh /home/docker/script/ftps.sh
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf 
 
-RUN adduser -D -g 'user42' user42
+RUN adduser -D "user42" && echo "user42:user42" | chpasswd
 RUN chown -R user42:user42 /home/docker/script/ftps.sh
 
 CMD sh /home/docker/script/ftps.sh
