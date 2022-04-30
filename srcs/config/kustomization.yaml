@@ -9,6 +9,6 @@ resources:
   - nginx.yaml
   - phpmyadmin.yaml
   - influxdb.yaml
-  - telegraf.yaml
+  #- telegraf.yaml
   - ftps.yaml
   - grafana.yaml

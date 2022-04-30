@@ -1,12 +1,13 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add nginx openssl openssh openrc
+RUN apk add nginx openssl openssh openrc telegraf
 
 COPY srcs/default /etc/nginx/nginx.conf
 COPY srcs/nginx.sh /home/docker/script/nginx.sh
 COPY srcs/ssl.sh /home/docker/script/ssl.sh
 COPY srcs/sshd_config /etc/ssh/sshd_config
+COPY srcs/telegraf.conf /etc/telegraf.conf
 
 # SSH CONFIG
 RUN ssh-keygen -t dsa -P "" -f /etc/ssh/ssh_host_dsa_key && \

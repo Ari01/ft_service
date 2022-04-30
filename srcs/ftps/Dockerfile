@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk add vsftpd openssl
+RUN apk update && apk add vsftpd openssl telegraf
 
 RUN openssl req \
         -x509 \
@@ -12,6 +12,7 @@ RUN openssl req \
         -days 3650 \
         -subj "/CN=FR/ST=Paris/L=Paris/O=42/OU=42/CN=192.168.49.100"
 
+COPY telegraf.conf /etc/telegraf.conf
 COPY ftps.sh /home/docker/script/ftps.sh
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf 
 

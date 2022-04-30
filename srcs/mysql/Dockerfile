@@ -3,7 +3,7 @@ FROM alpine:latest
 # packages
 RUN apk update && apk add \
 openrc \
-mysql mysql-client
+mysql mysql-client telegraf
 
 VOLUME [ /sys/fs/cgroup/ ]
 
@@ -11,6 +11,7 @@ VOLUME [ /sys/fs/cgroup/ ]
 COPY mysql.sh /home/docker/script/mysql.sh
 COPY database.sh /home/docker/script/database.sh
 COPY mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY telegraf.conf /etc/telegraf.conf
 
 # rights
 RUN chown -R mysql:mysql /var/lib/mysql

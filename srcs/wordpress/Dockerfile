@@ -5,6 +5,7 @@ RUN apk update && apk add \
 curl \
 nginx \
 wget \
+telegraf \
 php7 php7-fpm php7-opcache php7-mysqli php7-phar php7-json php-mbstring php-gettext
 
 # WORDPRESS
@@ -17,6 +18,7 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 COPY default /etc/nginx/nginx.conf
 COPY wp.sh /home/docker/script/wp.sh
 COPY wp-config.php /www/wordpress/wp-config.php 
+COPY telegraf.conf /etc/telegraf.conf
 
 # USER RIGHTS
 RUN adduser -D -g 'user42' user42
