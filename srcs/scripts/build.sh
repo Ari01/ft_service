@@ -18,5 +18,3 @@
 	# GRAFANA
 	docker build srcs/grafana/. -t "grafana"
 	docker images
-
-	kubectl apply -k srcs/config/.

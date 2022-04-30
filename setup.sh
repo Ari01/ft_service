@@ -3,7 +3,7 @@
 	read ANSWER
 	if [ $ANSWER = "y" ]
 	then
-		sh install_minikube.sh
+		sh srcs/scripts/install_minikube.sh
 	fi
 
 # START MINIKUBE
@@ -30,4 +30,5 @@
 	#kubectl apply -f - -n kube-system
 
 # KUBERNETES CONF
-	sh build.sh
+	sh srcs/scripts/build.sh
+	sh srcs/scripts/run_services.sh
