@@ -16,6 +16,9 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 443
+    - name: nginx-ssh
+      port: 22
+      targetPort: 22
   type: LoadBalancer
 ---
 apiVersion: apps/v1
