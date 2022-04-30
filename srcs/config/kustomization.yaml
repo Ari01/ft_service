@@ -12,5 +12,3 @@ resources:
   #- telegraf.yaml
   - ftps.yaml
   - grafana.yaml
-  - dashboard-clusterRoleBinding.yaml
-  - dashboard-serviceaccount.yaml
