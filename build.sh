@@ -1,5 +1,6 @@
 # DOCKER CONTAINERS
 	eval $(minikube docker-env)
+	sleep 5
 	# NGINX
 	docker build srcs/nginx/. -t "nginx"
 	# MYSQL
