@@ -16,8 +16,8 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 
 # SCRIPT & CONF
 COPY default /etc/nginx/nginx.conf
-COPY wp.sh /home/docker/script/wp.sh
 COPY wp-config.php /www/wordpress/wp-config.php 
+COPY wp.sh /home/docker/script/wp.sh
 COPY telegraf.conf /etc/telegraf.conf
 
 # USER RIGHTS

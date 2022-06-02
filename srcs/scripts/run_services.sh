@@ -1,5 +1,15 @@
 	# run services
 	kubectl apply -k srcs/config/.
+#	kubectl apply -f srcs/kustomization.yaml
+#	kubectl apply -f srcs/metallb.yaml
+#	kubectl apply -f srcs/nginx.yaml
+#	kubectl apply -f srcs/mysql.yaml
+#	kubectl apply -f srcs/influxdb.yaml
+#	kubectl apply -f srcs/ftps.yaml
+#	kubectl apply -f srcs/grafana.yaml
+#	kubectl apply -f srcs/phpmyadmin.yaml
+#	kubectl apply -f srcs/wordpress.yaml
+	
 
 	# run dashboard
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
