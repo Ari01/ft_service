@@ -23,11 +23,11 @@
 
 	# SECRET KEY ON FIRST INSTALL
 	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-	kubectl get configmap kube-proxy -n kube-system -o yaml | \
-	sed -e "s/strictARP: false/strictARP: true/"
-	kubectl get pod -n metallb-system -o wide
-	kubectl get configmap kube-proxy -n kube-system -o yaml | \
-	kubectl apply -f - -n kube-system
+	#kubectl get configmap kube-proxy -n kube-system -o yaml | \
+	#sed -e "s/strictARP: false/strictARP: true/"
+	#kubectl get pod -n metallb-system -o wide
+	#kubectl get configmap kube-proxy -n kube-system -o yaml | \
+	#kubectl apply -f - -n kube-system
 
 # KUBERNETES CONF
 	sh srcs/scripts/build.sh

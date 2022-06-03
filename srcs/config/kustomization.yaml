@@ -4,11 +4,11 @@ secretGenerator:
   - password=user42
 resources:
   - metallb.yaml
-  - mysql.yaml
-  - influxdb.yaml
   - nginx.yaml
-  - ftps.yaml
+  - mysql.yaml
   - wordpress.yaml
   - phpmyadmin.yaml
+  - influxdb.yaml
+  - ftps.yaml
   - grafana.yaml
   #- telegraf.yaml
