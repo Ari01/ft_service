@@ -8,7 +8,7 @@
 
 # START MINIKUBE
 	minikube delete
-	minikube start
+	minikube start --vm-driver=docker
 	minikube kubectl -- get po -A
 
 # METALLB
@@ -21,8 +21,8 @@
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 
-	# SECRET KEY ON FIRST INSTALL
-	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+	# SECRET KEY ON FIRST INSTALL (deprecated ?)
+	#kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 	#kubectl get configmap kube-proxy -n kube-system -o yaml | \
 	#sed -e "s/strictARP: false/strictARP: true/"
 	#kubectl get pod -n metallb-system -o wide

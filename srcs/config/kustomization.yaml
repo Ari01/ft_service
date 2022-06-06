@@ -1,14 +1,14 @@
-secretGenerator:
-- name: mysql-pass
-  literals:
-  - password=user42
+#secretGenerator:
+#- name: mysql-pass
+#  literals:
+#  - password=user42
 resources:
   - metallb.yaml
-  - mysql.yaml
-  - wordpress.yaml
-  - nginx.yaml
-  - phpmyadmin.yaml
-  - influxdb.yaml
-  #- telegraf.yaml
-  - ftps.yaml
-  - grafana.yaml
+  - secret.yaml
+#  - influxdb.yaml
+#  - mysql.yaml
+#  - nginx.yaml
+#  - ftps.yaml
+#  - wordpress.yaml
+#  - phpmyadmin.yaml
+#  - grafana.yaml
