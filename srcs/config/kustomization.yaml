@@ -5,10 +5,10 @@
 resources:
   - metallb.yaml
   - secret.yaml
-#  - influxdb.yaml
-#  - mysql.yaml
-#  - nginx.yaml
-#  - ftps.yaml
-#  - wordpress.yaml
-#  - phpmyadmin.yaml
-#  - grafana.yaml
+  - influxdb.yaml
+  - mysql.yaml
+  - nginx.yaml
+  - ftps.yaml
+  - wordpress.yaml
+  - phpmyadmin.yaml
+  - grafana.yaml
