@@ -1,3 +1,17 @@
+# ON FIRST INSTALL
+	# check if firefox is up to date
+	sudo apt-get update
+	sudo apt-get install
+
+	# if cant exec sudo
+	sudo rm /var/lib/dpkg/lock-frontend
+	sudo rm /var/lib/apt/lists/lock
+	sudo rm /var/cache/apt/archives/lock
+	sudo rm /var/lib/dpkg/lock
+
+	# make sure user has rights on docker
+	sudo chmod 666 /var/run/docker.sock
+
 # INSTALL MINIKUBE
 	echo "Install minikube ? y/n"
 	read ANSWER
