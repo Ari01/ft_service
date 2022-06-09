@@ -3,10 +3,10 @@
 #  literals:
 #  - password=user42
 resources:
-  - metallb.yaml
-  - secret.yaml
-  - influxdb.yaml
-  - mysql.yaml
+#  - metallb.yaml
+#  - secret.yaml
+#  - influxdb.yaml
+#  - mysql.yaml
   - nginx.yaml
   - ftps.yaml
   - wordpress.yaml
