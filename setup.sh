@@ -1,7 +1,7 @@
 # ON FIRST INSTALL
 	# check if firefox is up to date
 	sudo apt-get update
-	sudo apt-get install
+	sudo apt-get install firefox
 
 	# if cant exec sudo
 	sudo rm /var/lib/dpkg/lock-frontend
