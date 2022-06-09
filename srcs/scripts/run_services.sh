@@ -1,5 +1,24 @@
+	# run config
+	kubectl apply -f srcs/config/metallb.yaml
+	kubectl apply -f srcs/config/secret.yaml
+
+	# run db
+	kubectl apply -f srcs/config/influxdb.yaml
+	kubectl apply -f srcs/config/mysql.yaml
+
+	# waiting for mysql
+	cond=1
+	echo "waiting for mysql.."
+	while [ $cond -gt 0 ]
+	do
+		sleep 2
+		id=$(kubectl get pod | grep "mysql" | awk '{print $1}')
+		kubectl logs $id | grep "Starting Telegraf"
+		cond=$?
+	done
+	
 	# run services
-	kubectl apply -k srcs/config/.
+	kubectl apply -k srcs/config 
 
 	# run dashboard
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml

@@ -3,7 +3,7 @@
 #openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out nginx-certificate.crt -keyout nginx.key < /home/docker/script/ssl.sh
 
 # init
-openrc
+mkdir /run/openrc
 touch /run/openrc/softlevel
 
 # IP CONFIG
