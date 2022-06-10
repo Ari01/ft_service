@@ -5,8 +5,7 @@ touch /run/openrc/softlevel
 rc-status
 /etc/init.d/mariadb start
 mysql -u root -puser42 < /home/docker/script/database.sh
-/etc/init.d/mariadb restart
+/etc/init.d/mariadb stop
 
-telegraf --config /etc/telegraf.conf
-#&
-#exec /usr/bin/mysqld --user=mysql --console
+telegraf --config /etc/telegraf.conf &
+exec /usr/bin/mysqld --user=mysql --console
